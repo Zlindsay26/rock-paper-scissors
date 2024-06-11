@@ -1,3 +1,4 @@
+let playRoundResult;
 let humanScore = 0;
 let computerScore = 0;
 
@@ -43,21 +44,26 @@ function getComputerChoice() {
     || humanChoice === "Scissors" && computerChoice === "Rock") {
      console.log(`You lose this round! ${computerChoice} beats ${humanChoice}`);
      return computerScore++;
-     
+
     } else {
         console.log("It's a tie! You both had the same choice!")
     }
 };
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-
-
 
 function playGame() {
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
-    playRound(humanSelection, computerSelection);
+    if (playRoundResult == "It's a tie! You both had the same choice!") {
+        computerScore += 0;
+      } else if (playRoundResult == `You win this round! ${humanChoice} beats ${computerChoice}`) {
+        playerScore++;
+      } else if (playRoundResult == `You lose this round! ${computerChoice} beats ${humanChoice}`) {
+        computerScore++;
+      }
+    
 }
+for(var i=0;i<5;i++){
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(humanSelection, computerSelection));
+console.log(`Computer: ${computerScore}`);
+console.log(`Player: ${humanScore}`);
+};
