@@ -1,35 +1,42 @@
-let playRoundResult;
 let humanScore = 0;
 let computerScore = 0;
-
+let humanChoice = "";
+let computerChoice = getComputerChoice();
+let playRoundResult = playRound(humanChoice, computerChoice);
 
 function getComputerChoice() {
     let choices = ["Rock", "Paper", "Scissors"];
-    let randomChoice = Math.floor(Math.random() * choices.length) + 1;
-
-    if (randomChoice === 1) {
+    let randomChoice = Math.floor(Math.random() * choices.length);
+  
+    if (randomChoice === 0) {
         return "Rock";
-    } if (randomChoice === 2) {
+    } if (randomChoice === 1) {
         return "Paper";
-    } if (randomChoice === 3) {
-        return "Scissors"
-    }
+    } if (randomChoice === 2) {
+        return "Scissors";
     };
+  };
+    
+    const button1 = document.querySelector("#button-1");
+    const button2 = document.querySelector("#button-2");
+    const button3 = document.querySelector("#button-3");
     
 
-    function getHumanChoice() {
-   let answer = prompt("Rock, Paper, or Scissors?").toLowerCase();
-
-   if (answer === "rock") {
-    return "Rock";
-   } if (answer === "paper") {
-    return "Paper"
-   } if (answer === "scissors") {
-    return "Scissors"
-   } else {
-    return "Please only use the given choices"
-   }
- };
+ function getHumanChoice() {
+   
+ button1.onclick = () => {
+     humanChoice = "Rock";
+     playRound();
+  };
+  button2.onclick = () => {
+    humanChoice = "Paper";
+    playRound();                  
+  };
+  button3.onclick = () => {
+    humanChoice = "Scissors";
+    playRound();
+  };
+   };
  
    function playRound(humanChoice, computerChoice) {
     
@@ -51,19 +58,28 @@ function getComputerChoice() {
 };
 
 function playGame() {
-    if (playRoundResult == "It's a tie! You both had the same choice!") {
-        computerScore += 0;
-      } else if (playRoundResult == `You win this round! ${humanChoice} beats ${computerChoice}`) {
-        playerScore++;
-      } else if (playRoundResult == `You lose this round! ${computerChoice} beats ${humanChoice}`) {
-        computerScore++;
-      }
+
+  if (playRoundResult == "It's a tie! You both had the same choice!") {
+    computerScore += 0;
+  } else if (playRoundResult == `You win this round! ${humanChoice} beats ${computerChoice}`) {
+    playerScore++;
+  } else if (playRoundResult == `You lose this round! ${computerChoice} beats ${humanChoice}`) {
+    computerScore++;
+  }
+
+
+  if (humanScore < 5 && computerScore < 5) {
     
 }
-for(var i=0;i<5;i++){
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(humanSelection, computerSelection));
-console.log(`Computer: ${computerScore}`);
-console.log(`Player: ${humanScore}`);
-};
+        console.log(playRoundResult);
+        console.log(`Computer: ${computerScore}`);
+        console.log(`Player: ${humanScore}`);
+
+        if (humanScore >= 5) {
+            console.log('Congrats! You Win!');
+        }
+        else if (computerScore >= 5) {
+            console.log('Sorry! You lose this time!');
+        }
+    };
+    playGame();
