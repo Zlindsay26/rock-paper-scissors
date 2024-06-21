@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="button-1">Rock</button>
-    <button id="button-2">Paper</button>
-    <button id="button-3">Scissors</button>
+    <h1>Rock, Paper, or Scissors?</h1>
+    <h3>First to 5 WINS!</h3>
+    <p>Click a Hand to Start</p>
+    <button  id="button-1">
+        <img src="../rock-paper-scissors/button-photos/rock.png" alt="hand sign for rock">
+    </button>
+    <button  id="button-2">
+        <img src="../rock-paper-scissors/button-photos/paper.png" alt="hand sign for paper">
+    </button>
+    <button   id="button-3">
+        <img src="../rock-paper-scissors/button-photos/scissors.png" alt="hand sign for scissors">
+    </button>
+    <div id="gameDisplay">
+        <p id="computer-display"></p>
+        <p id="human-display"></p>
+        <p id="final-score"></p>
+    </div>
+    <button id="button-4">NEW GAME</button>
     <script src="index.js"></script>
 </body>
 </html>
