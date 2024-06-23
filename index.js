@@ -86,13 +86,15 @@ function playGame() {
   };
   
   function updateScoreDisplay() {
-      humanDisplay.innerHTML = humanScore;
-      computerDisplay.innerHTML = computerScore;
+    document.getElementById('human-display').innerHTML = humanScore;
+    document.getElementById('computerisplay').innerHTML = computerScore;
   }
   
   
   const button4 = document.querySelector("#button-4");
-  button4.addEventListener('click', newGame);
+  button4.addEventListener('click', () => {
+    newGame();
+  });
 
     
 
