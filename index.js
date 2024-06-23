@@ -14,27 +14,35 @@ function getComputerChoice() {
     } if (randomChoice === 1) {
         return "Paper";
     } if (randomChoice === 2) {
-        return "Paper";
-    } if (randomChoice === 3) {
-        return "Scissors"
-    }
+        return "Scissors";
     };
+  };
+    
+    const button1 = document.querySelector("#button-1");
+    const button2 = document.querySelector("#button-2");
+    const button3 = document.querySelector("#button-3");
     
 
-    function getHumanChoice() {
-   let answer = prompt("Rock, Paper, or Scissors?").toLowerCase();
-
-   if (answer === "rock") {
-    return "Rock";
-   } if (answer === "paper") {
-    return "Paper"
-   } if (answer === "scissors") {
-    return "Scissors"
-   } else {
-    return "Please only use the given choices"
-   }
+ function ButtonClick(choice) {
+   
+  humanChoice = choice;
+  playRound(humanChoice, computerChoice);
+  playGame();
  };
- 
+
+ button1.addEventListener('click', () => {
+  computerChoice = getComputerChoice(); 
+   ButtonClick("Rock");
+});
+button2.addEventListener('click', () => {
+  computerChoice = getComputerChoice();
+   ButtonClick("Paper");
+});
+button3.addEventListener('click', () => {
+  computerChoice = getComputerChoice();
+   ButtonClick("Scissors");
+});
+
    function playRound(humanChoice, computerChoice) {
     
      if (humanChoice === "Rock" && computerChoice === "Scissors"
